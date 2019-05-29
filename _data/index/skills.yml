@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: Linux/Shell, Docker, Kubernetes/Openshift, AWS, Git, Python, Golang, Groovy, ELK, Prometheus/Grafana, Jenkins, ETCD/Consul, Terraform, Vault, Ansible, Puppet
-percentage: 80, 85, 85, 70, 65, 80, 80, 75, 70, 85, 90, 65, 80, 80, 85, 65
+aspects: Linux/Shell, Docker, Kubernetes/Openshift, AWS, Git, Python, Golang, Groovy, ELK, Prometheus/Grafana, Jenkins, ETCD/Consul, Terraform, Vault, Ansible, Puppet, Openstack
+percentage: 80, 85, 85, 70, 65, 80, 80, 75, 70, 85, 90, 65, 80, 80, 85, 65, 80
