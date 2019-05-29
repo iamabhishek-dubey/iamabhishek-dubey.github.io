@@ -15,15 +15,15 @@
   icon: fa-plus-square
 
 - name:
-    detail: Company B
+    detail: Hostmud Solutions
     i18n: company_b
   desc:
-    detail: I worked at Company B ...
+    detail: In Hostmud, I started to deal with Linux Servers and Cloud Computing Softwares like Openstack
     i18n: company_b_desc
   date:
-    detail: Jun. 2015
+    detail: Sept. 2016
     i18n: company_b_date
   job:
-    detail: Full Stack Developer
+    detail: Cloud Engineer
     i18n: company_b_job
   icon: fa-plus-square
