@@ -2,7 +2,7 @@
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
 - name:
     detail: OpsTree Solutions
-    i18n: opstree_solutions
+    i18n: company_a
   desc:
     detail: Right now I am working with OpsTree Solutions where I am learning different types of DevSecOps Practices
     i18n: company_a_desc
