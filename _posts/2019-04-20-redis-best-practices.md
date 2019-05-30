@@ -21,6 +21,7 @@ There are plenty of Redis performance articles out there, but I wanted to share 
 
 **So let’s get started.**
 
+<br/><br/>
 
 ## TCP-KeepAlive
 
@@ -30,7 +31,11 @@ In simple words, if the keepalive is off the Redis will open a new connection fo
 
 Let’s see the graph for more details. The Red Bar shows the output when keepalive is on and Blue Bar shows the output when keepalive is off
 
+<p align="center">
 <img src="{{ site.img_path }}/redis/redis-first.png" width="75%">
+</p>
+
+<br/><br/>
 
 For enabling the TCP keepalive, Edit the redis configuration and update this value.
 
@@ -39,3 +44,11 @@ vim /etc/redis/redis.conf
 # Update the value to 0
 tcp-keepalive 0
 ```
+
+<br/><br/>
+
+## Pipelining
+
+This feature could be your lifesaver in terms of Redis Performance. Pipelining facilitates a client to send multiple requests to the server without waiting for the replies at all and finally reads the reply in a single step.
+
+For example:-
