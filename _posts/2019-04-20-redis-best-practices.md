@@ -135,7 +135,7 @@ As graph also shows the difference in performance. The Red Bar is showing THP di
 |maxmemory|70% of the system|maxmemory should be 70 percent of the system so that it will not take all the resource of the server|
 |maxmemory-policy|volatile-lru|It adds a random key with an expiry time|
 |loglevel|notice|Loglevel should be notice so that log will not take too much resource|
-|timeout|300|There should be a timeout value as well in redis configuration which prevents redis from spending too much time on the connection. It closes the connection of the client if it is ideal for more than 300 seconds.
+|timeout|300|There should be a timeout value as well in redis configuration which prevents redis from spending too much time on the connection. It closes the connection of the client if it is ideal for more than 300 seconds.|
 
 <br/><br/>
 
