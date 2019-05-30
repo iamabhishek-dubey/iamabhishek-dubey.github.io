@@ -46,7 +46,7 @@ list_docker_images() {
 ## Functions
 Ahha, Functions are my most favorite part of programming. There is a saying
 
-“Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”
+> “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”
 
 To achieve this always try to use functions and name them properly so that anyone can understand the function just by reading its name. Functions also provide the concept of reusability. It also removes the duplicating of code, how? let’s see this
 

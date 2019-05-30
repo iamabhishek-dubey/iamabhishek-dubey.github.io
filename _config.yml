@@ -62,9 +62,8 @@ sass:
 encoding: utf-8
 
 # other settings
-# highlighter: rouge
+highlighter: rouge
 markdown: kramdown
-highlightjs_theme: "atom-one-dark"
-# kramdown:
-#   input: GFM
-#   syntax_highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
