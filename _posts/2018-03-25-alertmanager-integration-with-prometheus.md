@@ -150,3 +150,83 @@ receivers:
   - api_url: https://hooks.slack.com/services/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
     channel: '#prom-alert'
 ```
+
+**Note:- You just have to replace the channel name and api_url of the Slack with your information.**
+
+The configuration file for E-mail will look something like this:-
+
+```yaml
+global:
+
+templates:
+- '/etc/alertmanager/*.tmpl'
+# The root route on which each incoming alert enters.
+route:
+  # default route if none match
+  receiver: alert-emailer
+
+  # The labels by which incoming alerts are grouped together. For example,
+  # multiple alerts coming in for cluster=A and alertname=LatencyHigh would
+  # be batched into a single group.
+  # TODO:
+  group_by: ['alertname', 'priority']
+
+  # All the above attributes are inherited by all child routes and can
+  # overwritten on each.
+
+receivers:
+- name: alert-emailer
+  email_configs:
+  - to: 'receiver@example.com'
+    send_resolved: false
+    from: 'sender@example.com'
+    smarthost: 'smtp.example.com:587'
+    auth_username: 'sender@example.com'
+    auth_password: 'IamPassword'
+    auth_secret: 'sender@example.com'
+    auth_identity: 'sender@example.com'
+```
+
+In this configuration file, you need to update the sender and receiver mail details and the authorization password of the sender.
+
+Once the configuration part is done we just have to create a storage directory where AlertManger will store its data.
+
+```bash
+mkdir /var/lib/alertmanager
+```
+
+Then only last piece which will be remaining is my favorite part i.e creating service :-)
+
+```bash
+vi /etc/systemd/system/alertmanager.service
+```
+
+The service file will look like this:-
+
+```ini
+[Unit]
+Description=AlertManager Server Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=Simple
+ExecStart=/usr/local/bin/alertmanager \
+    --config.file /etc/alertmanager/alertmanager.yml \
+    --storage.tsdb.path /var/lib/alertmanager
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then reload the daemon and start the alertmanager service.
+
+```bash
+systemctl daemon-reload
+systemctl start alertmanager
+systemctl enable alertmanager
+```
+
+Now you are all set to fire up your **monitoring** and **alerting**. So just take a beer and relax until AlertManager notifies you for alerts. All the best!!!!
