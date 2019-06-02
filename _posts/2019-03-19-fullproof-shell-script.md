@@ -27,7 +27,7 @@ So without wasting time let’s start for writing an awesome shell script. Here 
 ## Lifespan of Script
 If your script is procedural(each subsequent steps relies on the previous step to complete), do me a favor and add set -e in starting of the script so that the script exists on the first error. For example:-
 
-{% highlight shell %}
+{% highlight bash %}
 #!/bin/bash
 
 set -e # Script exists on first failure
