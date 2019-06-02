@@ -42,7 +42,6 @@ list_docker_images() {
 }
 ```
 
-
 ## Functions
 Ahha, Functions are my most favorite part of programming. There is a saying
 
@@ -60,7 +59,6 @@ install_package() {
 
 install_package "vim"
 ```
-
 
 ## Command Sanity
 Usually, scripts call other scripts or binary. When we are dealing with commands there are chances that commands will not be available on all systems. So my suggestion is to check them before proceeding.
@@ -80,7 +78,6 @@ check_package() {
 
 check_package "vim"
 ```
-
 
 ## Help Page
 If you guys are familiar with Linux, you have certainly noticed that every Linux command has its help page. The same thing can be true for the script as well. It would be really helpful to include --help flag.
@@ -108,7 +105,6 @@ arg_checker() {
 arg_checker
 ```
 
-
 ## Logging
 Logging is the most critical thing for everyone whether he is a developer, sysadmin or DevOps. Debugging seems to be impossible without logs. As we know most applications generate logs for understanding that what is happening with the application, the same practice can be implemented for shell script as well. For generating logs we have a bash utility called logger.
 
@@ -132,7 +128,6 @@ check_file() {
 check_file "/etc/passwd"
 ```
 
-
 ## Variables
 I like to name my variables in Capital letters with an underscore, In this way, I will not get confused with the function name and variable name. Never give a,b,c etc. as a variable name instead of that try to give a proper name to a variable as well just like functions.
 
@@ -151,7 +146,6 @@ message_print() {
 
 message_print
 ```
-
 
 ## Cases
 Cases are also a fascinating part of shell script. But the question is when to use this? According to me if your shell program is providing more than one functionality basis on the arguments then you should go for cases. For example:- If your shell utility provides the capability of installing and uninstalling the software.
@@ -179,7 +173,6 @@ case "$1" in
         ;;
 esac
 ```
-
 
 In this blog, we have covered functions, variables, the lifespan of a script, logging, help page, command sanity.
 I hope these topics help you in your daily life while using the shell script. If you have any feedback please let me know through comments.
