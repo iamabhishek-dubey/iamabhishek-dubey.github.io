@@ -68,4 +68,4 @@ markdown: kramdown
 #   input: GFM
 #   syntax_highlighter: rouge
 
-highlightjs_theme: monokai-sublime
+highlightjs_theme: monokai_sublime
