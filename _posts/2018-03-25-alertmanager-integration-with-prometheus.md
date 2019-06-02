@@ -58,3 +58,95 @@ After downloading, let’s extract the files.
 ```bash
 tar -xvzf alertmanager-0.11.0.linux-amd64.tar.gz 
 ```
+
+So we can start AlertManager from here as well but it is always a good practice to follow Linux directory structure.
+
+```bash
+mv alertmanager-0.11.0.linux-amd64/alertmanager /usr/local/bin/
+```
+
+## Configuration
+Once the tar file is extracted and binary file is placed at the right location then the configuration part will come. Although AlertManager extracted directory contains the configuration file as well, but it is not of our use. So we will create our own configuration. Let’s start by creating a directory for configuration.
+
+```bash
+mkdir /etc/alertmanager/
+```
+
+Then the configuration file will take place.
+
+```bash
+vim /etc/alertmanager/alertmanager.yml
+```
+
+The configuration file for Slack will look like this:-
+
+```yaml
+global:
+
+
+# The directory from which notification templates are read.
+templates:
+- '/etc/alertmanager/template/*.tmpl'
+
+# The root route on which each incoming alert enters.
+route:
+  # The labels by which incoming alerts are grouped together. For example,
+  # multiple alerts coming in for cluster=A and alertname=LatencyHigh would
+  # be batched into a single group.
+  group_by: ['alertname', 'cluster', 'service']
+
+  # When a new group of alerts is created by an incoming alert, wait at
+  # least 'group_wait' to send the initial notification.
+  # This way ensures that you get multiple alerts for the same group that start
+  # firing shortly after another are batched together on the first
+  # notification.
+  group_wait: 3s
+
+  # When the first notification was sent, wait 'group_interval' to send a batch
+  # of new alerts that started firing for that group.
+  group_interval: 5s
+
+  # If an alert has successfully been sent, wait 'repeat_interval' to
+  # resend them.
+  repeat_interval: 1m
+
+  # A default receiver
+  receiver: mail-receiver
+
+  # All the above attributes are inherited by all child routes and can
+  # overwritten on each.
+
+  # The child route trees.
+  routes:
+  - match:
+      service: node
+    receiver: mail-receiver
+
+    routes:
+    - match:
+        severity: critical
+      receiver: critical-mail-receiver
+
+  # This route handles all alerts coming from a database service. If there's
+  # no team to handle it, it defaults to the DB team.
+  - match:
+      service: database
+    receiver: mail-receiver
+
+    routes:
+    - match:
+        severity: critical
+      receiver: critical-mail-receiver
+
+
+receivers:
+- name: 'mail-receiver'
+  slack_configs:
+  - api_url: https://hooks.slack.com/services/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
+    channel: '#prom-alert'
+
+- name: 'critical-mail-receiver'
+  slack_configs:
+  - api_url: https://hooks.slack.com/services/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
+    channel: '#prom-alert'
+```
