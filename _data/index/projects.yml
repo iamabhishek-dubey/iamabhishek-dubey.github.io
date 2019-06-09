@@ -7,3 +7,10 @@
   repo: dockerlinter
   img: /static/assets/img/landing/dockerlinter.png
   desc: A simple golang tool which audits your Dockerfile with Best Practices and generates a HTML report. The main goal of creating this tool is to provide easy, fast and reliable linting of Dockerfile.
+
+- name: Redis Operator
+  i18n: redis-operator
+  gh_user: iamabhishek-dubey
+  repo: redis-operator
+  img: /static/assets/img/landing/redis-operator.png
+  desc: A golang based operator for deploying Redis on Kubernetes. The goal of creating this operator was to make redis highly available deployment easy on top of the Kubernetes.
